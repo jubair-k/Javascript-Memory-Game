@@ -1,9 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #083c80;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container h3{
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 10px 0;
+    color: #FFF;
+    
+}
+
+.container h6{
+    font-size: 1rem;
+    color: #f2b42e;
+    margin: 10px 0;
+}
+
 .grid{
     display: flex;
     flex-wrap: wrap;
-    height: 300px;
-    width: 400px;
+    justify-content: space-around;
+    align-items: center;
+    height: 435px;
+    width: 435px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 15px 2px black;
 }
 .grid img{
-    width: 100px;height: 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    cursor: pointer;
 }
+
+#tryAgain{
+    margin: 20px 0;
+    padding: 8px 30px;
+    border: none;
+    outline: none;
+    background-color: #FFF;
+    color: black;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 3px 3px 2px 1px black;
+}
+#tryAgain .fa{
+    color: black;
+    font-size: 1.5rem;
+}
+
+#sound{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: #f2b42e;
+    display: block;
+    cursor: pointer;
+}
+
+
+
+@media screen and (min-width: 600px) {
+    .grid{
+        width: 400px;
+        height: 400px;
+    }
+    .grid img{
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media screen and (max-device-width: 550px) { 
+    .grid{
+        width: 350px;
+        height: 350px;
+    }
+    .grid img{
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+@media only screen and (max-device-width: 400px) {
+    .grid{
+        width: 260px;
+        height: 260px;
+    }
+    .grid img{
+        width: 60px;
+        height: 60px;
+    }
+}
+

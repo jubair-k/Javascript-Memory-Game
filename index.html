@@ -4,13 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <title>Document</title>
+    <title>Memory Game</title>
 </head>
 <body>
-    <h3>Score: <span id="result"></span></h3>
-    <div class="grid">
-    </div>
+    <section class="container">
+        <h3>score : <span id="result"></span></h3>
+        <h6>Remainig Chances : <span id="chances"></span></h6>
+        <div class="grid">
+        </div>    
+        <button id="tryAgain"><i class="fa fa-recycle" aria-hidden="true"></i></button>
+
+        <i id="sound" class="fa fa-volume-up" aria-hidden="true"></i>
+
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
