@@ -78,6 +78,9 @@
     cursor: pointer;
 }
 
+.select{
+    opacity: 1;
+}
 
 
 @media screen and (min-width: 600px) {

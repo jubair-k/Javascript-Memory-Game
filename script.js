@@ -102,7 +102,6 @@ document.addEventListener('DOMContentLoaded',() => {
         const optionOneId=cardChosenId[0]
         const optionTwoId=cardChosenId[1]
         if(cardsChosen[0] === cardsChosen[1]){
-            //alert('You found a match')
             winSond.play();
             cards[optionOneId].setAttribute('src','images/blank.jpg')
             cards[optionTwoId].setAttribute('src','images/blank.jpg')
@@ -113,7 +112,6 @@ document.addEventListener('DOMContentLoaded',() => {
         else{
             cards[optionOneId].setAttribute('src','images/quest.jpg')
             cards[optionTwoId].setAttribute('src','images/quest.jpg')
-            //alert('sorry, try again')
             remainds--
             wrongSond.play();
 
@@ -133,12 +131,20 @@ document.addEventListener('DOMContentLoaded',() => {
 
     // flip your card
     function flipCard(){
-        var cardId=this.getAttribute('data-id')
-        cardsChosen.push(cardArray[cardId].name)
-        cardChosenId.push(cardId)
-        this.setAttribute('src',cardArray[cardId].img)
-        if(cardsChosen.length ==2){
-            setTimeout(checkForMatch,500)
+        if(!this.classList.contains('select')){
+            images=document.querySelectorAll('.grid img')
+            images.forEach(element => element.classList.remove('select') );
+
+            this.classList.add('select')
+            var cardId=this.getAttribute('data-id')
+            cardsChosen.push(cardArray[cardId].name)
+            cardChosenId.push(cardId)
+            this.setAttribute('src',cardArray[cardId].img)
+            if(cardsChosen.length ==2){
+                setTimeout(checkForMatch,500)
+                images=document.querySelectorAll('.grid img')
+                images.forEach(element => element.classList.remove('select') );    
+            }    
         }
     }
 
