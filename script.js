@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded',() => {
     const resultDisplay=document.querySelector('#result')
     let chances=document.querySelector('#chances')
     const soundbtn=document.querySelector('#sound')
+    const finalScore=document.querySelector('.container h3');
 
     var wrongSond = new Audio('sounds/wrong.mp3');
     var winSond = new Audio('sounds/win.wav');
@@ -92,6 +93,7 @@ document.addEventListener('DOMContentLoaded',() => {
             card.setAttribute('src','images/quest.jpg')
             card.setAttribute('data-id',i)
             card.addEventListener('click',flipCard)
+            card.addEventListener('touchstart',flipCard)
             grid.appendChild(card)
         }
     }
@@ -106,7 +108,9 @@ document.addEventListener('DOMContentLoaded',() => {
             cards[optionOneId].setAttribute('src','images/blank.jpg')
             cards[optionTwoId].setAttribute('src','images/blank.jpg')
             cards[optionOneId].removeEventListener('click',flipCard)
+            cards[optionOneId].removeEventListener('touchstart',flipCard)
             cards[optionTwoId].removeEventListener('click',flipCard)
+            cards[optionTwoId].removeEventListener('touchstart',flipCard)
             cardsWon.push(cardsChosen)
         }
         else{
@@ -121,7 +125,7 @@ document.addEventListener('DOMContentLoaded',() => {
         resultDisplay.textContent=cardsWon.length
         chances.textContent=remainds;
         if(cardsWon.length === cardArray.length/2){
-            resultDisplay.textContent="Congratulations! You Win"
+            finalScore.textContent="Congratulations! You Win"
             gamewinSond.play()
         }
         gameLose()
@@ -154,8 +158,9 @@ document.addEventListener('DOMContentLoaded',() => {
             images=document.querySelectorAll('.grid img')
             images.forEach(element => {
                 element.removeEventListener('click',flipCard)
+                element.removeEventListener('touchstart',flipCard)
             });
-            resultDisplay.textContent="Lol, You Lose! Try again"
+            finalScore.textContent="Game Over"
             loseSond.play();
         }
     }
@@ -164,7 +169,10 @@ document.addEventListener('DOMContentLoaded',() => {
         document.location.reload()
     })
 
-    soundbtn.addEventListener('click',function(){
+    soundbtn.addEventListener('click',soundControl);
+    soundbtn.addEventListener('touchstart',soundControl);
+
+    function soundControl(){
         if(this.classList.contains('fa-volume-up')){
             this.classList.remove('fa-volume-up')
             this.classList.add('fa-volume-off')
@@ -172,7 +180,6 @@ document.addEventListener('DOMContentLoaded',() => {
             winSond.volume = 0.0;
             gamewinSond.volume = 0.0;
             loseSond.volume = 0.0;
-
         }
         else if(this.classList.contains('fa-volume-off')){
             this.classList.remove('fa-volume-off')
@@ -181,9 +188,8 @@ document.addEventListener('DOMContentLoaded',() => {
             winSond.volume = 1.0;
             gamewinSond.volume = 1.0;
             loseSond.volume = 1.0;
-
         }
-    })
+    }
 
     createBoard()
 
